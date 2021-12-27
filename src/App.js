@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <textarea rows="3"></textarea>
-        <div className="counter">0</div>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [count, setCount] = useState(0);
+  const contador = txtlength => {
+    setCount(txtlength);
+  };
+
+  return (
+    <div className="container">
+      <textarea
+        rows="3"
+        onKeyUp={e => contador(e.target.value.length)}
+      ></textarea>
+      <div className="counter">{count}</div>
+    </div>
+  );
+};
 
 export default App;
