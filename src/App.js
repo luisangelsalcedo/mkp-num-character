@@ -3,16 +3,13 @@ import "./App.css";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const contador = txtlength => {
-    setCount(txtlength);
+  const updates = e => {
+    setCount(e.target.value.length);
   };
 
   return (
     <div className="container">
-      <textarea
-        rows="3"
-        onKeyUp={e => contador(e.target.value.length)}
-      ></textarea>
+      <textarea rows="3" onChange={e => updates(e)}></textarea>
       <div className="counter">{count}</div>
     </div>
   );
